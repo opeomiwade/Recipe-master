@@ -1,0 +1,102 @@
+<%- include("partials/header.ejs") %>
+
+
+
+<% if (locals.title && locals.instructions && locals.ingredients && locals.imageUrl) { %>
+    <h3 style = "text-align: center; position: static; margin-top: 2rem;">Recipes, please click and image for further information</h2>
+    <div class = "d-flex flex-column align-items-center">
+        <div class = "grid-container container-lg mt-3 p-4" >
+        <% for( let i = 0; i < title.length; i++ ) { %>
+            <form class = "d-flex align-items-center flex-column"action = "/information" method="post">
+                <input type="hidden" name="instructions" value="<%= instructions[i] %>">
+                <input type="hidden" name="ingredients" value="<%= ingredients[i] %>">
+                <input type="hidden" name="imageUrl" value="<%= imageUrl[i] %>">
+                <input type="hidden" name="title" value="<%= title[i] %>">
+                <button style = " border: 0; "type="submit" class="recipe-link">
+                    <img src = "<%= imageUrl[i] %>" alt = "image of <%= title[i] %>"/>
+                </button>
+                <p style="text-align: center; margin-top: 1rem;"> <%=title[i] %></p>
+            </form>
+        <% } %>
+        </div>
+    </div>  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(() => {
+            $("body").removeClass("home");
+            $("body").addClass("recipePage");
+            $("footer").removeClass("absolute"); 
+            $("footer").addClass("sticky"); 
+    
+        })
+    </script>
+    
+
+    <% }else{%>
+    <div class = "container">
+       <h2 class = "d-flex flex-shrink-1 flex-wrap justify-content-center align-items-center">Select a Recipe using the options or use the random recipe button</h2>  
+    </div>
+   
+    <div class = "container-lg">
+        <div class = "d-flex align-items-center justify-content-center gap-2 flex-container">
+        <form action = "/recipes" , method = "post" class = "d-flex flex-column flex-lg-row gap-2 flex-shrink-1">
+            <input id = "recipe-name" type = "text" placeholder = "Recipe name(i.e pasta,etc) " name = "recipe" >
+            <select id = cuisines name="cuisines">
+                <option value="">--Cuisines--</option>
+                <option value="African">African</option>
+                <option value="Asian">Asian</option>
+                <option value="American">American</option>
+                <option value = "British">British</option>
+                <option value="Carribean">Carribean</option>
+                <option value="Chinese">Chinese</option>
+                <option value="French">French</option>
+                <option value = "Italian">Italian</option>
+                <option value="Indian">Indian</option>
+                <option value = Japanese>Japanese</option>
+                <option value="Mexican">Mexican</option>
+                <option value = Spanish>Spanish</option>
+                <option value = Thai>Thai</option>
+            </select>
+            <select id = diets name = "diets">
+                <option value="">--Diets--</option>
+                <option value="Ketogenic">Ketogenic</option>
+                <option value = "Gluten Free">Gluten Free</option>
+                <option value="Vegetarian">Vegetarian</option>
+                <option value="Lacto-Vegetarian">Lacto-Vegetarian</option>
+                <option value = "Ovo-Vegetarian">Ovo-Vegetarian</option>
+                <option value = "Vegan">Vegan</option>
+                <option value = "Pescetarian">Pescetarian</option>
+                <option value = "Paleo">Paleo</option>
+                <option value="Primal">Primal</option>
+            </select>
+            <select id = intolerances name="intolerances">
+                <option value="">--Intolerance--</option> 
+                <option value = "Dairy">Dairy</option>
+                <option value="Egg">Egg</option>
+                <option value="Gluten">Gluten</option>
+                <option value="Grain">Grain</option>
+                <option value="Peanut">Peanut</option>
+                <option value="Seafood">Seafood</option>
+                <option value="Sesame">Sesame</option>
+                <option value="Shellfish">Shellfish</option>
+                <option value="Soy">Soy</option>
+                <option value="Sulfite">Sulfite</option>
+                <option value="Treenut">Treenut</option>
+                <option value="Wheat">Wheat</option>
+            </select>
+            <button class = form-button>Search</button>
+        </form> 
+        </div>
+
+        <div class = "d-flex align-items-center justify-content-center flex-container mt-5">
+            <a class = "button" href = "/random"> Random Recipe</a>
+        </div>
+    </div>
+<%}%>
+
+
+
+
+   
+
+<%- include("partials/footer.ejs") %>
