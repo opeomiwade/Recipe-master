@@ -1,0 +1,101 @@
+<%- include("partials/header.ejs") %>
+<div class="container">
+  <% if (locals.mealPlan) { %>
+  <h3 style="text-align: center; position: static; margin-top: 2rem">
+    Meal Plan
+  </h3>
+  <div class="meal-plan">
+    <% days.forEach((day) => { %>
+    <div class="meal">
+      <h4><%= day.toUpperCase() %></h4>
+     
+      <% mealPlan[day].meals.forEach((meal, index) => { %> 
+        <form action="/recipe-info" method="post" class="recipe-form">
+          <button><p style="text-align: left;" class="meal-p">Meal <%= index + 1 %>: <%=meal.title %></p></button>
+          <input type="hidden" name="mealID" value="<%= meal.id %>"/>
+          </form> 
+      <% }) %>
+    
+      <p>Calories: <%= mealPlan[day].nutrients.calories%>kcal</p>
+      <p>Fat: <%= mealPlan[day].nutrients.fat %>g</p>
+      <p>Protein: <%= mealPlan[day].nutrients.protein %>g</p>
+      <p>Carbs: <%= mealPlan[day].nutrients.carbohydrates %>g</p>
+      </div>
+      <% }) %>
+  </div>
+  <script>
+    $(document).ready(() => {
+      $("body").removeClass("home");
+      $("body").addClass("recipePage");
+      $("footer").removeClass("absolute");
+      $("footer").addClass("sticky");
+    });
+  </script>
+  <%}else{%>
+  <h2>Fill In Details To Generate Meal Plan</h2>
+  <form
+    action="/mealplan"
+    method="post"
+    class="d-flex justify-content-center gap-3 flex-container"
+  >
+    <select id="diets" name="diets">
+      <option value="">--Diets--</option>
+      <option value="Ketogenic">Ketogenic</option>
+      <option value="Gluten Free">Gluten Free</option>
+      <option value="Vegetarian">Vegetarian</option>
+      <option value="Lacto-Vegetarian">Lacto-Vegetarian</option>
+      <option value="Ovo-Vegetarian">Ovo-Vegetarian</option>
+      <option value="Vegan">Vegan</option>
+      <option value="Pescetarian">Pescetarian</option>
+      <option value="Paleo">Paleo</option>
+      <option value="Primal">Primal</option>
+    </select>
+    <input
+      id="target"
+      type="number"
+      name="targetcalories"
+      style="text-align: center"
+      placeholder="Enter Target Calories"
+    />
+    <select id="timeframe" name="timeframe">
+      <option value="">--select timeframe--</option>
+      <option value="day">day</option>
+      <option value="week">week</option>
+    </select>
+    <button disabled type="submit" class="form-button disabled">
+      Generate
+    </button>
+  </form>
+  <script>
+    function checkInputs() {
+      let dietInput = $("#diets").val().trim();
+      let timeframeInput = $("#timeframe").val().trim();
+      let targetcaloriesInput = $("#target").val().trim();
+      if (
+        dietInput === "" ||
+        targetcaloriesInput == "" ||
+        timeframeInput === ""
+      ) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+    $(document).ready(() => {
+      console.log(checkInputs());
+      $("#diets, #timeframe, input").on("blur", () => {
+        if (checkInputs()) {
+          $("button").prop("disabled", true);
+          $("button").addClass("disabled");
+        } else {
+          console.log("here");
+          $("button").prop("disabled", false);
+          $("button").removeClass("disabled");
+        }
+      });
+    });
+  </script>
+  <%}%>
+</div>
+
+<%- include("partials/footer.ejs") %>

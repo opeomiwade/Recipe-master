@@ -1,117 +1,163 @@
-footer.absolute{
-    position: absolute;
-    bottom: 0;
+footer.absolute {
+  position: absolute;
+  bottom: 0;
 }
 
-.title-box{
-    background-color: #F5F5F5;
-    height: 100px;
-    border-bottom: 5px solid #5FD068;
+.title-box {
+  background-color: #f5f5f5;
+  height: 100px;
+  border-bottom: 5px solid #5fd068;
 }
 
-h1{
-    margin-top: 15px;
-    margin-left: 5px;
+h1 {
+  margin-top: 15px;
+  margin-left: 5px;
 }
 
-h2{
-    position: relative;
-    top: 200px;
-    text-align: center;
-    color: red;
-    background-color: white;
-    border-radius: 20px;
-    border: 2px solid #5FD068;
-    font-weight: 900;
-    padding: 5px;
+h2 {
+  position: relative;
+  top: 200px;
+  text-align: center;
+  color: red;
+  background-color: white;
+  border-radius: 20px;
+  border: 2px solid #5fd068;
+  font-weight: 900;
+  padding: 5px;
 }
 
-body.home{
-    font-family: 'Bricolage Grotesque', sans-serif;
-    background-image: url("../images/background\ image.jpeg");
-    color: #5FD068;
-    background-size: contain;
+body.home {
+  font-family: "Bricolage Grotesque", sans-serif;
+  background-image: url("../images/background\ image.jpeg");
+  color: #5fd068;
+  background-size: contain;
 }
 
-.button{
-    text-decoration: none;
-    position: relative;
-    right: 20px;
-    color: #5FD068 ;
-    border: 1px solid #5FD068;
-    border-radius: 20px;
-    font-size: larger;
-    padding: 5px;
-    background-color: white;
+.button {
+  text-decoration: none;
+  position: relative;
+  right: 20px;
+  color: #5fd068;
+  border: 1px solid #5fd068;
+  border-radius: 20px;
+  font-size: larger;
+  padding: 5px;
+  background-color: white;
 }
 
-.page-header{
-    text-decoration: none;
-    color: #5FD068 ;
+.page-header {
+  text-decoration: none;
+  color: #5fd068;
 }
 
-.page-header:hover{
-    color: black;
+.page-header:hover {
+  color: black;
 }
 
-
-.title-box  .button:hover, a:hover , button:hover{
-    transform: scale(1.2);
-    transition: 200ms ease-in;
+.title-box .button:hover,
+a:hover,
+button.recipe-link:not([disabled]):hover {
+  transform: scale(1.2);
+  transition: 200ms ease-in;
 }
 
-.form-button, select,option,input{
-    right: 20px;
-    color: #5FD068 ;
-    border: 1px solid #5FD068;
-    border-radius: 20px;
-    font-size: larger;
-    padding: 5px;
-    background-color: white;
+.form-button,
+select,
+option,
+input {
+  right: 20px;
+  color: #5fd068;
+  border: 1px solid #5fd068;
+  border-radius: 20px;
+  font-size: larger;
+  padding: 5px;
+  background-color: white;
 }
 
-option{
-    font-size: 0.8rem;
+option {
+  font-size: 0.8rem;
 }
 
-input::placeholder{
-    color: #5FD068 ;
+input::placeholder {
+  color: #5fd068;
 }
 
-.flex-container{
-    position: relative;
-    top: 300px;
-
+.flex-container {
+  position: relative;
+  top: 300px;
 }
 
-.grid-container{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    width: fit-content;
-    background-image: url("../images/marbletop.jpeg");
-    gap: 1rem;
-    border: 3px solid #5FD068 ;
-    border-radius: 20px;
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: fit-content;
+  background-image: url("../images/marbletop.jpeg");
+  gap: 1rem;
+  border: 3px solid #5fd068;
+  border-radius: 20px;
 }
 
-img{
-    object-fit: fill;
+img {
+  object-fit: fill;
 }
 
-.recipePage{
-    background-color: whitesmoke ;
-    color: #5FD068; 
-    font-family: 'Bricolage Grotesque', sans-serif;
+.recipePage {
+  background-color: whitesmoke;
+  color: #5fd068;
+  font-family: "Bricolage Grotesque", sans-serif;
 }
 
-.sticky{
-    position: sticky;
-    bottom: 0;
+.sticky {
+  position: sticky;
+  bottom: 0;
 }
 
-.information{
-    font-family: 'Bricolage Grotesque', sans-serif;
-    background-image: url("../images/marbletop.jpeg");
-    color: #5FD068;
+.information {
+  font-family: "Bricolage Grotesque", sans-serif;
+  background-image: url("../images/marbletop.jpeg");
+  color: #5fd068;
 }
-  
+
+.disabled {
+  text-decoration: none;
+  position: relative;
+  right: 20px;
+  margin-left: 10px;
+  color: #ccc;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  font-size: larger;
+  padding: 5px;
+  background-color: white;
+}
+
+.meal-plan {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.meal {
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.meal button {
+  border: none; /* Remove border */
+  background: none; /* Remove background */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margin */
+  display: inline; /* Display as inline element */
+}
+
+.meal h4 {
+  margin-top: 0;
+}
+
+.meal button:hover {
+  text-decoration: underline; /* Add underline when hovered */
+  color: blue; /* Change color when hovered */
+  cursor: pointer; /* Change cursor to pointer when hovered */
+}
