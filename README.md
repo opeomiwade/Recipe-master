@@ -9,6 +9,8 @@ This project is a Recipe App built with HTML, EJS templating, Node.js, Express.j
 - Backend Functionalities: Created with Node.js and Express.js for robust backend functionality.
 - Spoonacular API Integration: Utilized the Axios library to execute asynchronous HTTP requests to the Spoonacular API. Retrieved specific data based on user-defined search parameters like intolerances, cuisines, and diets.
 - Recipe Filtering: Offers users filtering options to personalize their recipe searches based on dietary preferences, cuisines, and intolerances.
+- Meal Plan Creation: Offers users the option to creat meal plan based on their preferences
+  
 
 ## Technologies Used
 
