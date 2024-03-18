@@ -22,7 +22,7 @@ This project is a Recipe App built with HTML, EJS templating, Node.js, Express.j
 - Spoonacular API: An API for food and recipe data.
 
 ## Installation
-Clone the repository
+Clone the repository (request might be slow with dpeloyed site as render free tier was used)
 
 Or
 
