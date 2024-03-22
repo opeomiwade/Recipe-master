@@ -16,7 +16,7 @@ function getInfo(response) {
   response.forEach((recipe) => {
     title.push(recipe.title);
     imageUrl.push(recipe.image);
-    recipe.analyzedInstructions.forEach((analyzedInstructions) => {
+    recipe.analyzedInstructions?.forEach((analyzedInstructions) => {
       let stepArray = [];
       analyzedInstructions.steps.forEach((step) => {
         stepArray.push(step.step);
